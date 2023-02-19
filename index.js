@@ -40,6 +40,11 @@ const agent = new Agent({ ciphers: ciphers.join(':'), honorCipherOrder: true, mi
             defaultViewport: { width: 1920, height: 1080 }
       });
 
+      //info
+      var email = "test@gmail.com";
+      var password = "zxcv123123@";
+      var username = "namehere";
+
 
       for (var i = 0; i < 100; i++) {
             const page = await browser.newPage();
@@ -48,7 +53,7 @@ const agent = new Agent({ ciphers: ciphers.join(':'), honorCipherOrder: true, mi
 
 
             await page.waitForSelector('input[name=email]');
-            await page.type('input[name=email]', 'quyhn0302@gmail.com');
+            await page.type('input[name=email]', email);
 
             await page.waitForSelector('button[type=submit]:not([disabled])');
             await page.click('button[type=submit]');
@@ -66,15 +71,15 @@ const agent = new Agent({ ciphers: ciphers.join(':'), honorCipherOrder: true, mi
             await page.click('button[type=submit]');
 
             await page.waitForSelector('input[name=username]');
-            await page.type('input[name=username]', `nightmarkzs${i}`);
+            await page.type('input[name=username]', `${username}${i}`);
             await sleep(1000);
 
             await page.waitForSelector('button[type=submit]');
             await page.click('button[type=submit]');
 
             await page.waitForSelector('input[name=password]');
-            await page.type('input[name=password]', 'zxcv123123@');
-            await page.type('input[name=confirm_password]', 'zxcv123123@');
+            await page.type('input[name=password]', password);
+            await page.type('input[name=confirm_password]', password);
             await page.waitForSelector('button[type=submit]:not([disabled])');
             let accountSuccess = 0;
             while (await page.$('div[aria-hidden=true]')) {
