@@ -65,7 +65,7 @@ const agent = new Agent({ ciphers: ciphers.join(':'), honorCipherOrder: true, mi
             await page.type('input[name=date_of_birth_month]', '09');
 
             await page.waitForSelector('input[name=date_of_birth_year]');
-            await page.type('input[name=date_of_birth_year]', '1998');
+            await page.type('input[name=date_of_birth_year]', '1995');
 
             await page.waitForSelector('button[type=submit]:not([disabled])');
             await page.click('button[type=submit]');
